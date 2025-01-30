@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a New Book</title>
+  </head>
+  <body>
+    <h1>Add a New Book</h1>
+
+    {% if form %}
+    <form method="POST">
+      {% csrf_token %}
+
+      <label for="id_title">Title:</label>
+      {{ form.title }}
+      <br /><br />
+
+      <label for="id_author">Author:</label>
+      {{ form.author }}
+      <br /><br />
+
+      <label for="id_genre">Genre:</label>
+      {{ form.genre }}
+      <br /><br />
+
+      <label for="id_price">Price:</label>
+      {{ form.price }}
+      <br /><br />
+
+      <label for="id_stock">Stock:</label>
+      {{ form.stock }}
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <p>Form is not being passed correctly!</p>
+    {% endif %}
+    <br />
+    <a href="{% url 'home' %}">
+      <button>Back</button>
+    </a>
+  </body>
+</html>
